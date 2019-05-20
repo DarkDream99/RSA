@@ -1,4 +1,5 @@
 from typing import List
+import cProfile
 
 
 class PrimeGenerator(object):
@@ -28,5 +29,9 @@ class PrimeGenerator(object):
 
 
 if __name__ == '__main__':
+    # max prime a = 999979
+    # max prime b = 999983
     prime_generator = PrimeGenerator(1_000_000)
     print(prime_generator.primes())
+
+    # cProfile.run('prime_generator.primes()')
