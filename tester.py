@@ -1,4 +1,5 @@
 from rsa.crypt.crypt import Crypt
+from rsa.decrypt.decrypt import Decrypt
 from rsa.key_generator.key_generator import KeyGenerator
 
 read_bytes = []
@@ -19,4 +20,9 @@ print(dec_bytes)
 key_generator = KeyGenerator()
 priv_key, pub_key = key_generator.generate()
 crypter = Crypt(pub_key)
-print(crypter.crypt(dec_bytes))
+crypted_bytes = crypter.crypt(dec_bytes)
+print(crypted_bytes)
+
+
+decrypter = Decrypt(priv_key)
+print(decrypter.decrypt(crypted_bytes))

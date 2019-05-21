@@ -14,8 +14,8 @@ class KeyGenerator(object):
         self._euler_func = (p - 1) * (q - 1)
 
     def generate(self) -> Tuple[PrivateKey, PublicKey]:
-        e = 65537  # Ferma numbers
-        gcd, u, v = euclid.extend_euclid(e, self._n)
+        e = 13   # Ferma numbers
+        gcd, u, v = euclid.extend_euclid(e, self._euler_func)
         d = u
 
         while d < 0:
