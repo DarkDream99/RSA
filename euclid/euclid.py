@@ -22,4 +22,3 @@ def extend_euclid(num_a: int, num_b: int) -> Tuple[int, int, int]:
     x = y1 - (num_b // num_a) * x1
     y = x1
     return gcd, x, y
-
