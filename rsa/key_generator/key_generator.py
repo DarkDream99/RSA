@@ -18,6 +18,9 @@ class KeyGenerator(object):
         gcd, u, v = euclid.extend_euclid(e, self._n)
         d = u
 
+        while d < 0:
+            d += self._n
+
         private_key = PrivateKey(d, self._n)
         public_key = PublicKey(e, self._n)
 

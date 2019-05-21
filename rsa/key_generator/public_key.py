@@ -11,3 +11,8 @@ class PublicKey (object):
     @property
     def n(self):
         return self._n
+
+    def __str__(self):
+        return f"RSA Public Key:" \
+               f"\n\te: {self.e}" \
+               f"\n\tn: {self.n}"
