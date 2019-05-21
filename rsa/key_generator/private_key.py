@@ -11,3 +11,9 @@ class PrivateKey(object):
     @property
     def n(self):
         return self._n
+
+    def __str__(self):
+        return f"RSA Private Key:" \
+               f"\n\td: {self.d}" \
+               f"\n\tn: {self.n}"
+
