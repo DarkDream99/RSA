@@ -8,8 +8,8 @@ from rsa.key_generator.private_key import PrivateKey
 class KeyGenerator(object):
 
     def __init__(self):
-        p = 999979
-        q = 999983
+        p = 991  # 9999973  # 999979
+        q = 997  # 9999991  # 999983
         self._n = p * q
         self._euler_func = (p - 1) * (q - 1)
 

@@ -16,13 +16,13 @@ for byte in read_bytes:
 print(read_bytes)
 print(dec_bytes)
 
-
+# encrypt
 key_generator = KeyGenerator()
 priv_key, pub_key = key_generator.generate()
 crypter = Crypt(pub_key)
 crypted_bytes = crypter.crypt(dec_bytes)
 print(crypted_bytes)
 
-
+# decrypt
 decrypter = Decrypt(priv_key)
 print(decrypter.decrypt(crypted_bytes))
