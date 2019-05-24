@@ -1,3 +1,5 @@
+import random
+
 from typing import Tuple
 
 from euclid import euclid
@@ -7,22 +9,23 @@ from rsa.key_generator.private_key import PrivateKey
 
 class KeyGenerator(object):
 
-    def __init__(self):
-        p = 9999999967  # 99999971  # 991  # 9999973  # 999979
-        q = 9999999943  # 99999989  # 997  # 9999991  # 999983
-        self._n = p * q
-        self._euler_func = (p - 1) * (q - 1)
+    @staticmethod
+    def generate() -> Tuple[PrivateKey, PublicKey]:
+        z = random.choice([(9999999967, 9999999943), (999979, 999983), (991, 997)])
+        p, q = z[0], z[1]
+        print(p, q)
+        n = p * q
+        euler_func = (p - 1) * (q - 1)
 
-    def generate(self) -> Tuple[PrivateKey, PublicKey]:
         e = 13   # Ferma numbers
-        gcd, u, v = euclid.extend_euclid(e, self._euler_func)
+        gcd, u, v = euclid.extend_euclid(e, euler_func)
         d = u
 
         while d < 0:
-            d += self._n
+            d += n
 
-        private_key = PrivateKey(d, self._n)
-        public_key = PublicKey(e, self._n)
+        private_key = PrivateKey(d, n)
+        public_key = PublicKey(e, n)
 
         return private_key, public_key
 
