@@ -1,4 +1,5 @@
 import time
+import math
 
 from rsa.key_generator import key_generator
 from euclid import euclid
@@ -17,7 +18,8 @@ start = current_milli_time()
 # HACK PRIVATE KEY
 # factorize module n
 factor_a = factor_b = -1
-for factor in range(2, pub_key.n // 2):
+for factor in range(2, round(math.sqrt(pub_key.n))):
+    print(f'check factor: {factor}')
     if pub_key.n % factor == 0:
         factor_a = factor
         factor_b = pub_key.n // factor

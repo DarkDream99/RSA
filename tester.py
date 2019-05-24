@@ -26,3 +26,25 @@ print(crypted_bytes)
 # decrypt
 decrypter = Decrypt(priv_key)
 print(decrypter.decrypt(crypted_bytes))
+
+
+def part_prime():
+    import math
+
+    primes = []
+    for num in range(10_000_000_000, 1_000_000_000, -1):
+        is_prime = True
+        print(f'check num: {num}')
+        for i in range(2, round(math.sqrt(num))):
+            print(f'\ton i: {i}')
+            if num % i == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            primes.append(num)
+
+        if len(primes) == 2:
+            break
+
+    print(primes)
